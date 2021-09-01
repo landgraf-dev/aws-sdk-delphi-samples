@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{6A02A6BC-EDF7-42AB-AF7E-C243588F03B6}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Polly\AWSPollySample.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Lex\AWSLexSample.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Translate\AWSTranslateSample.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="AWSPollySample">
+        <MSBuild Projects="Polly\AWSPollySample.dproj"/>
+    </Target>
+    <Target Name="AWSPollySample:Clean">
+        <MSBuild Projects="Polly\AWSPollySample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AWSPollySample:Make">
+        <MSBuild Projects="Polly\AWSPollySample.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="AWSLexSample">
+        <MSBuild Projects="Lex\AWSLexSample.dproj"/>
+    </Target>
+    <Target Name="AWSLexSample:Clean">
+        <MSBuild Projects="Lex\AWSLexSample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AWSLexSample:Make">
+        <MSBuild Projects="Lex\AWSLexSample.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="AWSTranslateSample">
+        <MSBuild Projects="Translate\AWSTranslateSample.dproj"/>
+    </Target>
+    <Target Name="AWSTranslateSample:Clean">
+        <MSBuild Projects="Translate\AWSTranslateSample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AWSTranslateSample:Make">
+        <MSBuild Projects="Translate\AWSTranslateSample.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="AWSPollySample;AWSLexSample;AWSTranslateSample"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="AWSPollySample:Clean;AWSLexSample:Clean;AWSTranslateSample:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="AWSPollySample:Make;AWSLexSample:Make;AWSTranslateSample:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

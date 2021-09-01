@@ -1,0 +1,41 @@
+object Form7: TForm7
+  Left = 0
+  Top = 0
+  Caption = 'Form7'
+  ClientHeight = 79
+  ClientWidth = 433
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Edit1: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 1
+    Text = 'Hello, world!'
+    Position.X = 14.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 289.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Button1: TButton
+    Position.X = 310.000000000000000000
+    Position.Y = 31.000000000000000000
+    Size.Width = 105.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Text = 'Speak'
+    OnClick = Button1Click
+  end
+  object MediaPlayer1: TMediaPlayer
+    Left = 190
+    Top = 24
+  end
+  object Label1: TLabel
+    Position.X = 14.000000000000000000
+    Position.Y = 12.000000000000000000
+    Text = 'Type text:'
+    TabOrder = 4
+  end
+end
