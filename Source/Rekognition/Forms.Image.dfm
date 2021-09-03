@@ -1,0 +1,34 @@
+object ImageForm: TImageForm
+  Left = 0
+  Top = 0
+  BorderStyle = bsSizeToolWin
+  Caption = 'Image'
+  ClientHeight = 386
+  ClientWidth = 500
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  ShowHint = True
+  OnPaint = FormPaint
+  OnResize = FormResize
+  PixelsPerInch = 96
+  TextHeight = 13
+  object PaintBox1: TPaintBox
+    Left = 0
+    Top = 0
+    Width = 500
+    Height = 386
+    Align = alClient
+    ParentShowHint = False
+    ShowHint = False
+    OnMouseMove = PaintBox1MouseMove
+    ExplicitLeft = 296
+    ExplicitTop = 224
+    ExplicitWidth = 105
+    ExplicitHeight = 105
+  end
+end

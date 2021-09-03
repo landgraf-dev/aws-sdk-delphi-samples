@@ -12,6 +12,9 @@
         <Projects Include="Translate\AWSTranslateSample.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Rekognition\AWSRekognition.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -47,14 +50,23 @@
     <Target Name="AWSTranslateSample:Make">
         <MSBuild Projects="Translate\AWSTranslateSample.dproj" Targets="Make"/>
     </Target>
+    <Target Name="AWSRekognition">
+        <MSBuild Projects="Rekognition\AWSRekognition.dproj"/>
+    </Target>
+    <Target Name="AWSRekognition:Clean">
+        <MSBuild Projects="Rekognition\AWSRekognition.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AWSRekognition:Make">
+        <MSBuild Projects="Rekognition\AWSRekognition.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="AWSPollySample;AWSLexSample;AWSTranslateSample"/>
+        <CallTarget Targets="AWSPollySample;AWSLexSample;AWSTranslateSample;AWSRekognition"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AWSPollySample:Clean;AWSLexSample:Clean;AWSTranslateSample:Clean"/>
+        <CallTarget Targets="AWSPollySample:Clean;AWSLexSample:Clean;AWSTranslateSample:Clean;AWSRekognition:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AWSPollySample:Make;AWSLexSample:Make;AWSTranslateSample:Make"/>
+        <CallTarget Targets="AWSPollySample:Make;AWSLexSample:Make;AWSTranslateSample:Make;AWSRekognition:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
