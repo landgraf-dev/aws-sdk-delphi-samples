@@ -21,7 +21,6 @@ type
     procedure FormCreate(Sender: TObject);
     procedure SendClick(Sender: TObject);
   private const
-//    {$MESSAGE ERROR 'Insert your BotId and BotAliasId here'}
     BotId = 'XXXXXXX';
     BotAliasId = 'XXXXXX';
     LocaleId = 'en_US';
@@ -116,12 +115,23 @@ var
   UserInput: string;
   Response: IRecognizeTextResponse;
   Msg: TMessage;
+  LocalBotId: string;
+  LocalBotAliasId: string;
 begin
   UserInput := edMessage.Text;
   AddToChat('You: ' + UserInput);
   edMessage.Text := '';
   Application.ProcessMessages;
-  Response := GetRecognizeTextV2Response(BotId, BotAliasId, LocaleId, FSessionId, UserInput);
+
+  LocalBotId := GetEnvironmentVariable('AWS_DELPHI_SAMPLES_BOTID');
+  if LocalBotId = '' then
+    LocalBotId := BotId;
+
+  LocalBotAliasId := GetEnvironmentVariable('AWS_DELPHI_SAMPLES_BOTALIASID');
+  if LocalBotAliasId = '' then
+    LocalBotAliasId := BotAliasId;
+
+  Response := GetRecognizeTextV2Response(LocalBotId, LocalBotAliasId, LocaleId, FSessionId, UserInput);
   for Msg in Response.Messages do
     AddToChat('Bot: ' + Msg.Content);
   if Response.IsSetSessionState and Response.SessionState.IsSetIntent
