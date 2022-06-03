@@ -15,6 +15,9 @@
         <Projects Include="Rekognition\AWSRekognition.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Transcribe\AWSTranscribeSample.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -59,14 +62,23 @@
     <Target Name="AWSRekognition:Make">
         <MSBuild Projects="Rekognition\AWSRekognition.dproj" Targets="Make"/>
     </Target>
+    <Target Name="AWSTranscribeSample">
+        <MSBuild Projects="Transcribe\AWSTranscribeSample.dproj"/>
+    </Target>
+    <Target Name="AWSTranscribeSample:Clean">
+        <MSBuild Projects="Transcribe\AWSTranscribeSample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AWSTranscribeSample:Make">
+        <MSBuild Projects="Transcribe\AWSTranscribeSample.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="AWSPollySample;AWSLexSample;AWSTranslateSample;AWSRekognition"/>
+        <CallTarget Targets="AWSPollySample;AWSLexSample;AWSTranslateSample;AWSRekognition;AWSTranscribeSample"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AWSPollySample:Clean;AWSLexSample:Clean;AWSTranslateSample:Clean;AWSRekognition:Clean"/>
+        <CallTarget Targets="AWSPollySample:Clean;AWSLexSample:Clean;AWSTranslateSample:Clean;AWSRekognition:Clean;AWSTranscribeSample:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AWSPollySample:Make;AWSLexSample:Make;AWSTranslateSample:Make;AWSRekognition:Make"/>
+        <CallTarget Targets="AWSPollySample:Make;AWSLexSample:Make;AWSTranslateSample:Make;AWSRekognition:Make;AWSTranscribeSample:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
