@@ -134,9 +134,9 @@ begin
   Response := GetRecognizeTextV2Response(LocalBotId, LocalBotAliasId, LocaleId, FSessionId, UserInput);
   for Msg in Response.Messages do
     AddToChat('Bot: ' + Msg.Content);
-  if Response.IsSetSessionState and Response.SessionState.IsSetIntent
-    and (Response.SessionState.Intent.ConfirmationState = TConfirmationState.Confirmed) then
-    OrderFullfilled(Response.SessionState.Intent);
+  if Response.IsSetSessionStateValue and Response.SessionStateValue.IsSetIntent
+    and (Response.SessionStateValue.Intent.ConfirmationState = TConfirmationState.Confirmed) then
+    OrderFullfilled(Response.SessionStateValue.Intent);
 end;
 
 procedure TForm1.StartChat;

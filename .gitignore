@@ -69,3 +69,4 @@ Source/Lex/AWSLexSample.res
 Source/Polly/AWSPollySample.res
 Source/Translate/AWSTranslateSample.res
 Source/Rekognition/AWSRekognition.res
+*.dsv
