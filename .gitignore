@@ -70,3 +70,4 @@ Source/Polly/AWSPollySample.res
 Source/Translate/AWSTranslateSample.res
 Source/Rekognition/AWSRekognition.res
 *.dsv
+Source/Transcribe/AWSTranscribeSample.res

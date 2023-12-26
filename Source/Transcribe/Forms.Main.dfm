@@ -46,7 +46,7 @@ object MainForm: TMainForm
           Left = 4
           Top = 4
           Width = 89
-          Height = 32
+          Height = 15
           Margins.Left = 4
           Margins.Top = 4
           Margins.Right = 4
@@ -54,7 +54,6 @@ object MainForm: TMainForm
           Align = alLeft
           Caption = 'Trancription Jobs'
           Layout = tlCenter
-          ExplicitHeight = 15
         end
         object ListJobsButton: TSpeedButton
           AlignWithMargins = True

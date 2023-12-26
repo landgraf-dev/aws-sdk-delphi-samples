@@ -3,7 +3,7 @@ unit Forms.Main;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, System.UITypes,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls,
   Vcl.ExtCtrls, Vcl.Buttons, Generics.Collections, AWS.Transcribe, AWS.Transcribe.Transcript,
   AWS.Transcribe.VocabularyFilter;
@@ -234,6 +234,7 @@ var
   lFColor: TColor;
 begin
   DefaultDraw := True;
+  lFColor := clBlack;
   if (SubItem=3) then // status column
   begin
     lStatus := JobStatus(Jobs[Item.Index].TranscriptionJobStatus.Value);
@@ -243,8 +244,7 @@ begin
       COMPLETED: lFColor := clGreen;
       FAILED: lFColor := clRed;
     end;
-  end else
-    lFColor := clBlack;
+  end;
   Sender.Canvas.Font.Color := lFColor;
 end;
 
@@ -454,6 +454,7 @@ begin
   Media := TMedia.Create;
   Media.MediaFileUri := AParams.MediaUri;
 
+  Redaction := nil;
   if AParams.ContentRedaction<>'' then
   begin
     Redaction := TContentRedaction.Create;

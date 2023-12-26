@@ -4,9 +4,10 @@ uses
   Vcl.Forms,
   AWS.Transcribe.Transcript in 'AWS.Transcribe.Transcript.pas',
   AWS.Transcribe.VocabularyFilter in 'AWS.Transcribe.VocabularyFilter.pas',
+  Forms.Main in 'Forms.Main.pas' {MainForm},
   Forms.TranscriptionJob in 'Forms.TranscriptionJob.pas' {TranscriptionJobForm},
   Forms.VocabularyFilter in 'Forms.VocabularyFilter.pas' {VocabularyFilterForm},
-  Forms.Main in 'Forms.Main.pas' {MainForm};
+  Forms.NewJob in 'Forms.NewJob.pas' {NewJobForm};
 
 {$R *.res}
 
